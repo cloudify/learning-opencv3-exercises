@@ -1,5 +1,15 @@
 # How to compile
 
+## Install dependencies
+
 ```
-g++ -ggdb `pkg-config --cflags --libs /usr/local/Cellar/opencv3/HEAD-7dd3723_4/lib/pkgconfig/opencv.pc` 1.cc -o 1
+$ brew install ffmpeg --HEAD
+$ brew install homebrew/science/opencv3 --HEAD --with-contrib --with-examples --with-ffmpeg --with-java --with-tbb
+$ brew link --force opencv3
+```
+
+## Compile exercises
+
+```
+$ make
 ```
