@@ -4,7 +4,8 @@ SRCS=$(wildcard src/*.cpp)
 
 PROGS=$(patsubst src/%.cpp,bin/%,$(SRCS))
 
-CFLAGS=$(shell pkg-config --cflags --libs /usr/local/lib/pkgconfig/opencv.pc)
+CFLAGS=-std=c++11
+OPENCV_CFLAGS=$(shell pkg-config --cflags --libs /usr/local/lib/pkgconfig/opencv.pc)
 
 all: $(PROGS)
 
@@ -12,5 +13,4 @@ clean:
 	rm $(PROGS)
 
 bin/%: src/%.cpp
-
-	g++ $(CFLAGS) -o $@ $<
+	g++ $(CFLAGS) $(OPENCV_CFLAGS) -o $@ $<
